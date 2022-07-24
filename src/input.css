@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rbc-row-bg {
+    
+
+}
+
+.rbc-button-link {
+    color: inherit;
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    -webkit-user-select: text;
+    user-select: text;
+    @apply text-black
+}
+
+.rbc-row {
+    font-weight: 600;
+}
+
+.rbc-toolbar {
+    @apply bg-blue-200
+}
+
+.rbc-month-header {
+    border-width: 1px;
+    @apply bg-blue-400
+}
+
+.rbc-button-link {
+    @apply hover:bg-blue-300 rounded-full;
+
+}
+
+.rbc-btn-group > button:first-child:not(:last-child) {
+    @apply hover:bg-blue-400
+}
+
+.rbc-btn-group > button:not(:first-child):not(:last-child) {
+    @apply hover:bg-blue-400
+}
+
+.rbc-btn-group > button:last-child:not(:first-child) {
+    @apply hover:bg-blue-400
+}
+
+.rbc-month-view {
+
+}
+
+.rbc-row-bg {
+    border-bottom-right-radius: 25px;
+
+}
+
+.rbc-month-view {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: none;
+
+}
+
+.rbc-btn-group {
+    font-family: cursive;
+}
+
+.rbc-toolbar .rbc-toolbar-label {
+    font-family: cursive;
+}

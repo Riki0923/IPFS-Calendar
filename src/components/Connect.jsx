@@ -13,7 +13,7 @@ const Connect = () => {
     const { save } = useNewMoralisObject("ipfs");
     const { fetch } = useMoralisQuery("ipfs",
     (query) => query.notEqualTo("ipfsHash", "nonIpfsGateway"), [],
-    {autoFetch: false});
+    {autoFetch: true});
 
     const objectArray = [];
 

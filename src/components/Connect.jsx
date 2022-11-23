@@ -15,7 +15,7 @@ const Connect = () => {
     (query) => query.notEqualTo("ipfsHash", "nonIpfsGateway"), [],
     {autoFetch: true});
 
-    const objectArray = [];
+    const [ objectArray, setObjectArray] = useState([]);
 
     const login = async () => {
         if(!isAuthenticated) {
@@ -39,17 +39,15 @@ const Connect = () => {
 
     const fetchIPFSDoc = async () => {
       const results =  await fetch();
-      for(let i = 0; i < results.length; i++){
-       const object = results[i];
-       // console.log(object);
-       // console.log(object.attributes.ipfsHash);
-       const getter = axios.get(object.attributes.ipfsHash)
-       .then((events) => {
-         console.log(events.data);
-         objectArray.push(events.data);
-         console.log("data state is: ", objectArray);
-       })
-     }
+      const data = []
+      for await (const result of results) {
+        const events = await axios.get(result.attributes.ipfsHash)
+        console.log(events.data);
+        data.push(events.data);
+        console.log(data)
+      }
+      setObjectArray(data)
+      console.log("data state is: ", objectArray);
     };
 
     const listItems = async () => {
@@ -130,6 +128,14 @@ const Connect = () => {
           <button className="bg-sky-500 hover:bg-sky-600 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"
           style={{marginTop: "10px", display: "flex", justifyContent: "center"}} 
           onClick={uploadFile}>Add Event</button>
+          <div className='ml-10'>
+            {objectArray.map((value, index) => {
+              return <div class="" key={index}>{value.EventName}</div>
+            })}
+            <ul className='list-disc ml-3'>
+              <li>asdf</li>
+            </ul>
+          </div>
           <div>
           </div>
         </div>

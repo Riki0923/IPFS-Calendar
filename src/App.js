@@ -3,11 +3,9 @@ import React from 'react';
 import { useMoralis } from "react-moralis";
 import { useState, useEffect } from 'react';
 import Connect from './components/Connect';
-import "./input.css";
 import { Routes, Route } from "react-router-dom";
 
 export default function App() {
-
     const {
     isWeb3Enabled,
     enableWeb3,
